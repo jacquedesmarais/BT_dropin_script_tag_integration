@@ -3,9 +3,9 @@ import braintree
 
 braintree.Configuration.configure(
     braintree.Environment.Sandbox,
-    'qr7h9y9634y43hy3',
-    '8wtdvybw5yht6crc',
-    'c3bf46039e4b5589f65a5b1235c07857'
+    'your_merchant_id',
+    'your_public_key',
+    'your_private_key'
 )
 
 app = Flask(__name__)
