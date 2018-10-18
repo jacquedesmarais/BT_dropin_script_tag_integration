@@ -1,23 +1,24 @@
+<!-- .html tells us this is an HTML file -->
+<!-- This file is used by our server side to tell us where to go after creating a transaction. -->
+<!-- In this case, we are sending the customer to a "success" page with some simple result handling -->
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset='UTF-8'>
     <title>BT Integration</title>
+    <!-- this will be displayed at the top of the window tab -->
      <link rel='stylesheet' type='text/css' href='static/css/styles.css' media='screen'>
   </head>
 
   <body>
-    <!--Begin Body-->
-
-
-
-    <div id="main_wrapper">
+    <div>
         <h1>SUCCESS!!</h1>
+        <!-- Our success message! -->
         <h1>Transaction ID: {{ result.transaction.id }}</h1>
+        <!-- We are using the transaction response object and calling on the transaction ID that we just created -->
         <h1>Transaction Amount: {{ result.transaction.amount }}</h1>
+        <!-- We are using the transaction response object and calling on the transaction amount that we just created -->
     </div>
-
-
   </body>
-
 </html>
