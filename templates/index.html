@@ -1,17 +1,22 @@
+<!-- .html tells us this is an HTML file -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Checkout</title>
+    <!-- this will be displayed at the top of the browser window tab -->
   </head>
   <body>
     <form id="payment-form" action="/checkout" method="post">
-      <!-- We changed the action to our checkout file -->
-      <!-- This file will be the page that displays to let the customer know their transaction was successful -->
+      <!-- We changed the action to our checkout -->
+      <!-- The action attribute specifies where to send the form-data when a form is submitted, in this case, we are sending it as a POST request -->
       <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"
        data-braintree-dropin-authorization="sandbox_rx8dxxqr_qr7h9y9634y43hy3"
       ></script>
+      <!-- This is us including the Braintree Drop-in UI as a source in javascript -->
       <input type="submit" value="Purchase"></input>
+      <!-- This is our submit button, in our case, we changed the button to say "Purchase" but we could change it to "buy now" or really anything we want -->
     </form>
   </body>
 </html>

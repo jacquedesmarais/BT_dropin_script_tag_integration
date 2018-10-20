@@ -19,7 +19,7 @@ gateway = braintree.BraintreeGateway(
     private_key='your_private_key'
   )
 )
-# Here is where we configure the environment and API credentials - this tells Braintree what account to send the transaction to. Think of this like the Braintree and password so the Braintree servers know where to go.
+# Here is where we configure the environment and API credentials - this tells Braintree what account to send the transaction to. Think of this like the Braintree username and password so the Braintree servers know where to go with this information (in our case a transaction).
 
 app = Flask(__name__)
 # Once we import Flask, we need to create an instance of the Flask class for our web app. That’s what this line does. __name__ is a special variable that gets as value the string "__main__" when you’re executing the script.
@@ -28,7 +28,7 @@ app = Flask(__name__)
 def index():
     client_authorization = "sandbox_rx8dxxqr_qr7h9y9634y43hy3"
     return render_template('index.html', client_authorization=client_authorization)
-# Here we are defining a function that authorizes our client. That function is mapped to the home   ‘/’ URL. That means when the user navigates to localhost:5000, the home function will run and in our case, it will return the Drop-in UI. This entire function says, go find the index.html page, render the template on that page, and use this tokenization key.
+# Here we are defining a function that authorizes our client. That function is mapped to the home  ‘/’ URL. That means when the user navigates to localhost:5000/, the home function will run and in our case, it will return the Drop-in UI. This entire function says, go find the index.html page, render the template on that page, and use this tokenization key.
 
 
 @app.route("/checkout", methods=["POST"])
@@ -40,7 +40,7 @@ def checkout():
         'payment_method_nonce':payment_method_nonce
         })
     return render_template('checkout.html', result=result)
-    # This is our checkout function. The first think we do is get the payment method nonce from the server, in our case, this is imbeded as a hidden value in the form. Then, we make a transaction sale call to Braintree including an amount and a payment method nonce (credit card number and expiration). At the end of this function, we are saying, render the checkout.html page
+    # This is our checkout function. The first thing we do is get the payment method nonce from the server, in our case, this is imbeded as a hidden value in the form. Then, we make a transaction sale call to Braintree including an amount and a payment method nonce (credit card number and expiration). At the end of this function, we are saying, render the checkout.html page
 
 if __name__ == "__main__":
     app.run(debug=True)
